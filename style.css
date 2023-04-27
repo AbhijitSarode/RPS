@@ -1,1 +1,22 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
 
+body {
+    height: 100vh;
+    background-color: #8CC461;
+    overflow:hidden
+}
+
+
+
+#victory-img {
+    display: block;
+    margin: 10% auto;
+    width: 40%;
+}
