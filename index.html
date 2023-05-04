@@ -6,27 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor</title>
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <header>
-        <picture>
-            <img src="" alt="">
-        </picture>
-        <div>
-            <p>Score</p>
-            <p>0</p>
-        </div>
-    </header>
 
-    <main>
+    <div class="game-container">
+        <!-- SCORECARD & LOGO -->
+        <header>
+            <img src="./assets/logo.svg" alt="Logo">
 
-    </main>
+            <!-- Computer Scorecard -->
+            <div class="score-box">
+                <p id="computer-score-label">COMPUTER SCORE</p>
+                <p id="computer-score-value">0</p>
+            </div>
+
+            <!-- Player Scorecard -->
+            <div class="score-box">
+                <p id="player-score-label">YOUR SCORE</p>
+                <p id="player-score-value">0</p>
+            </div>
+        </header>
+        
+        <!-- GAME AREA -->
+        <main>
+            <!-- Game starts -->
+            <section class="game-box">
+                <div class="triangle"></div>
+                <button class="circle winner" id="rock" name="rock" onclick="startGame(rock)"></button>
+                <button class="circle" id="paper" name="paper" onclick="startGame(paper)"></button>
+                <button class="circle" id="scissors" name="scissors" onclick="startGame(scissors)"></button>
+            </section>
+            
+
+            <!-- Hidden area displays animation & result -->
+            <div class="result-box" hidden>
+                <div class="player-picked-container">
+                    <p class="choice-title">YOU PICKED</p>
+                    <div class="circle large player-selection"></div>
+                </div>
+                <div class="winner-container" >
+                    <p id="result-text" hidden><span>YOU WIN</span> <br> AGAINST PC</p>
+                    <button id="play-again" onclick="playAgain()" hidden>PLAY AGAIN</button>
+                </div>
+                
+                <div class="computer-picked-container" hidden>
+                    <p class="choice-title">COMPUTER PICKED</p>
+                    <div id="pulse-animation"></div>
+                    <div class="circle large computer-selection" hidden></div>
+                </div>
+            </div>
+
+            <!-- RULES MODAL -->
+            <section class="modal" hidden>
+                <button class="modal-close" onclick="closeModal()">X</button>
+                <article>
+                    <h3>Game Rules</h3>
+                    <ul>
+                        <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+                        <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+                        <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+                        <li>If both players lay down the same hand, each player lays down another hand</li>
+                    </ul>
+                </article>
+            </section>
+
+        </main>
+
+        <footer>
+            <button id="rules" onclick="showModal()">RULES</button>
+            <a href="./victory.html" id="next" hidden>NEXT</a>
+        </footer>
+    </div>
 
     <script src="index.js"></script>
 </body>
